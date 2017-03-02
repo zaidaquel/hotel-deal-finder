@@ -143,6 +143,14 @@
 					<include>*.properties</include>
 				  </includes>				  
 				</resource>
+				<resource>
+				  <targetPath>classes</targetPath>
+				  <directory>src/main/java</directory>
+				  <filtering>true</filtering>
+				  <includes>
+					<include>*.properties</include>
+				  </includes>				  
+				</resource>				
               </resources>              
             </configuration>            
           </execution>
