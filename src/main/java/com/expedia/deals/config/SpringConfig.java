@@ -20,10 +20,6 @@ import org.springframework.web.servlet.view.JstlView;
 public class SpringConfig extends WebMvcConfigurerAdapter {
 	
 	
-	public SpringConfig() {
-		System.err.println("XXXXXXXXXXXXXx");
-	}
-
 	@Bean
 	public ViewResolver viewResolver() {
 		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();

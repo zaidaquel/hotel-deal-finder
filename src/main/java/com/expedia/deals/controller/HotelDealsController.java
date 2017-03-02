@@ -27,10 +27,6 @@ import com.expedia.deals.utils.WebUtils;
 @RequestMapping("/deals")
 public class HotelDealsController {
 
-	public HotelDealsController() {
-		System.out.println("CONTRRRR");
-	}
-
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Autowired
