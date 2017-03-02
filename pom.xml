@@ -117,8 +117,56 @@
 	</dependencies>
 
 	<build>
-		<finalName>hotel-deals-finder</finalName>
+		<finalName>hotel-deals-finder</finalName>	
+		
 		<plugins>
+		<plugin>
+        <artifactId>maven-resources-plugin</artifactId>
+        <version>3.0.2</version>
+        <executions>
+          <execution>
+            <id>copy-resources</id>
+            <!-- here the phase you need -->
+            <phase>validate</phase>
+            <goals>
+              <goal>copy-resources</goal>
+            </goals>
+            <configuration>
+              <outputDirectory>${basedir}/target</outputDirectory>
+              <resources>          
+				<resource>
+				  <targetPath>test-classes</targetPath>
+				  <directory>src/test/java</directory>
+				  <filtering>true</filtering>
+				  <includes>
+					<include>*.xml</include>
+					<include>*.properties</include>
+				  </includes>				  
+				</resource>
+              </resources>              
+            </configuration>            
+          </execution>
+        </executions>
+      </plugin>
+		
+		
+		
+		
+		<plugin>
+			<groupId>org.apache.maven.plugins</groupId>
+			<artifactId>maven-war-plugin</artifactId>
+			<version>3.0.0</version>
+				
+		</plugin>			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.3</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>		
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>
@@ -141,6 +189,12 @@
 						</configuration>
 					</execution>
 				</executions>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.tomcat.maven</groupId>
+				<artifactId>tomcat7-maven-plugin</artifactId>
+				<version>2.2</version>
 			</plugin>
 		</plugins>
 	</build>

@@ -85,6 +85,9 @@ public class HotelDealsServiceJsonImpl implements HotelDealsService {
 	}
 
 	private void validate(HotelDealsFilter hotelDealsFilter) {
+		if (Objects.isNull(hotelDealsFilter)) {
+			return;
+		}
 		if (StringUtils.isBlank(hotelDealsFilter.getDestinationCity())) {
 			throw new DataRetrievalException("Destination City must be provided");
 		}
